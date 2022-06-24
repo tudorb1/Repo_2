@@ -24,7 +24,9 @@
     "**/*.ts",
     "**/*.tsx",
     "components/ForCanvas.jsx",
-    "components/ModelLoad.jsx"
+    "components/ModelLoad.jsx",
+    "pages/_app.jsx",
+    "pages/api/hello.js"
   ],
   "exclude": [
     "node_modules"
