@@ -1,0 +1,218 @@
+@font-face {
+  font-family: "odachi";
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  src: url(../public/Assets/nav/Odachi.woff) format("woff");
+}
+.scene {
+  width: 100vw;
+  height: 100vh;
+  /* background-color: #eec200; */
+}
+
+.canvas {
+  display: flex;
+  background: #000;
+}
+
+.nav {
+  position: absolute;
+  width: 100vw;
+  height: 12vh;
+  left: -50vw;
+  bottom: -50vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 50px;
+  // background-color: #0000ff;
+  font-family: odachi;
+}
+.toggleContainer {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  :first-child {
+    width: 50px;
+    transition: 0.3s all;
+  }
+  :last-child {
+    width: 50px;
+    transition: 0.3s all;
+  }
+}
+.toggleContainer:hover {
+  :first-child {
+    transform: translateX(6px);
+  }
+  :last-child {
+    transform: translateX(-6px);
+  }
+}
+
+.menuContainer {
+  width: 20vw;
+  display: flex;
+  // padding: 0 20px;
+  align-items: center;
+  justify-content: space-evenly;
+  .pentagon {
+    background: #00ff00;
+    height: 5vh;
+    width: 12vw;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    border-top-right-radius: 20px;
+    justify-content: center;
+  }
+  :nth-child(2) {
+    color: #d0d0d0;
+    cursor: pointer;
+  }
+  .social {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.popUp {
+  height: 70vh;
+  width: 27.3vw;
+  left: -48vw;
+  bottom: -48vh;
+  position: absolute;
+  .toggleWrapper {
+    background-image: url("/Assets/nav/Path_Toggle.png");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    // width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .toggleContent {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      div {
+        height: 100px;
+        width: 15vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        p {
+          font-family: odachi;
+          font-size: 35px;
+          transition: 0.3s all;
+          cursor: pointer;
+        }
+        :hover {
+          font-size: 40px;
+          font-weight: bolder;
+        }
+      }
+    }
+    .closeBtn {
+      position: absolute;
+      background-image: url("/Assets/nav/XClose.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 50px;
+      width: 50px;
+      left: 10px;
+      bottom: 10px;
+      cursor: pointer;
+    }
+  }
+}
+.teamContainer {
+  // background-color: #00ff00;
+  height:400px;
+  // width: 500px; 
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  .collection {
+    width:500px;
+    // height:100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  
+    position: relative;
+    // position: absolute;
+    // transform: translateX(-50%);
+    .teamWrapper {
+      // height:20vh;
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+      // background-color: #d0d0d0;
+      // display: block;
+
+      .teamImage {
+        // background-color: #d0d0d0;
+        height: 80%;
+        width: 50%;
+        
+      }
+      .label {
+        position: absolute;
+        background-color: #00ff00;
+        // border: 2px ridge #fff;
+        // height: 30%;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        align-items: flex-end;
+        text-align: end;
+        left: 0;
+        margin-top: 20%;
+        clip-path: polygon(
+          20% 0%,
+          80% 0%,
+          100% 0,
+          100% 80%,
+          80% 100%,
+          0 100%,
+          0% 80%,
+          0% 20%
+        );
+        h1 {
+          font-size: 8px;
+        }
+        p {
+          font-size: 5px;
+        }
+      }
+      .line {
+        position: absolute;
+        height: 1px;
+        width: 30%;
+        margin-left: 40%;
+        background-color: #00ff00;
+        left: 0;
+        margin-top: 35%;
+      }
+      .circle {
+        position: absolute;
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        margin-left: 70%;
+        background-color: #00ff00;
+        left: 0;
+        margin-top: 33.5%;
+      }
+    }
+  }
+}
