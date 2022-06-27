@@ -28,7 +28,8 @@ import THREE, {
   NotEqualDepth,
   LessEqualDepth,
   LessDepth,
-  Color
+  Color,
+  BoxBufferGeometry
 } from "three";
 import styles from "../styles/Component.module.scss";
 import { damp } from "three/src/math/MathUtils";
@@ -64,7 +65,7 @@ const Model = (props) => {
     color: "#0f0f0f",
   });
 
-  var effect, cube, cube_text1, cube_text2, cube_text3, cube_139, cube_33, shadow_1, shadow_2, text_1, text_2, text_3, text_4, text_5, text_6, text_7;
+  var effect, cube, plane015, cube_text1, cube_text2, cube_text3, cube_139, cube_33, shadow_1, shadow_2, text_1, text_2, text_3, text_4, text_5, text_6, text_7;
 
 
   const text_index = nodes.Scene.children.findIndex(x => x.name === "Text");
@@ -76,6 +77,9 @@ const Model = (props) => {
   cube_text2.material = text;
   cube_text3 = nodes.Scene.children[text2_index];
   cube_text3.material = text;
+
+  const plane015_index = nodes.Scene.children.findIndex(x => x.name === "Plane015");
+  plane015 = nodes.Scene.children[plane015_index];
 
   const cylinder004_index = nodes.Scene.children.findIndex(x => x.name === "Cylinder004");
   nodes.Scene.children[cylinder004_index].material = greyColor;
@@ -240,6 +244,9 @@ const Model = (props) => {
     depthFunc: LessDepth,
     opacity: 0.3
     // defines: materials.Coffee,
+  });
+  let coloronly21 = new MeshStandardMaterial({
+    color: "#220b2d",
   });
   let coloronly18 = new MeshStandardMaterial({
     color: "#cf33ff",
@@ -1099,6 +1106,23 @@ const Model = (props) => {
             anglePower={6}
           />
         </group>
+        <group
+          name="point_light_5"
+          position={[3.500, 4.410, 11.720]}
+        >
+          <SpotLight
+            distance={3}
+            angle={3}
+            intensity={1.23}
+            attenuation={4}
+            color={"#fb00ff"}
+            anglePower={6}
+          />
+          {/* <mesh>
+            <boxGeometry args={[1, 1, 1]} />
+            <meshStandardMaterial color={"#464343"} />
+          </mesh> */}
+        </group>
         <pointLight
           color={"#fb00ff"}
           position={[4, -11, 13]}
@@ -1188,6 +1212,7 @@ const Model = (props) => {
         <mesh name="cube_text1" geometry={cube_text1.geometry} material={coloronly20} position={[15.632, -12.846, 11.316]} rotation={[Math.PI / 2, Math.PI / 2, 0]} scale={[1.638, 1.638, 1.638]} />
         <mesh name="cube_text2" geometry={cube_text2.geometry} material={coloronly20} position={[9.418, -13.985, 11.316]} rotation={[Math.PI / 2, 0, 0]} scale={[1.638, 1.638, 1.638]} />
         <mesh name="cube_text3" geometry={cube_text3.geometry} material={coloronly20} position={[14.676, -13.944, 11.316]} rotation={[Math.PI / 2, Math.PI / 4, 0]} scale={[2.249, 2.249, 2.249]} />
+        <mesh name="plane015" geometry={plane015.geometry} material={coloronly21} position={[0.740, 6, 15]} rotation={[Math.PI / 2, 0, Math.PI]} scale={[5.460, 10.421, 1.421]} />
         {/* <mesh name="cube_33" geometry={cube_33.geometry} material={coloronly20} position={[5.757, -15.060, 1.119]} rotation={[0, 0, 0]} scale={[11.106, 0.883, 1.236]} /> */}
         {/* </EffectComposer> */}
       </group>
