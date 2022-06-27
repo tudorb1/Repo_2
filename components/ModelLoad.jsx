@@ -55,7 +55,7 @@ const Model = (props) => {
   });
 
   const text = new MeshStandardMaterial({
-    color: "#644002",
+    color: "#642402",
     transparent: true,
     opacity: 0.6
   });
@@ -234,10 +234,12 @@ const Model = (props) => {
     // defines: materials.Coffee,
   });
   let coloronly20 = new MeshStandardMaterial({
-    color: "#cb21ff",
+    color: "#434242",
     transparent: true,
-    opacity: 0.3,
-    side: DoubleSide
+    side: DoubleSide,
+    depthFunc: LessDepth,
+    opacity: 0.3
+    // defines: materials.Coffee,
   });
   let coloronly18 = new MeshStandardMaterial({
     color: "#cf33ff",
@@ -1183,7 +1185,9 @@ const Model = (props) => {
         <mesh name="text_6" geometry={text_6.geometry} material={coloronly15} position={[7.578, -16.675, 1.597]} rotation={[0.061, 1.562, 1.514]} scale={[1, 1, 0.01]} />
         <mesh name="text_5" geometry={text_5.geometry} material={coloronly16} position={[15.433, -17.255, 1.504]} rotation={[-2.872, 0.001, 3.035]} scale={[1.126, 1.296, 0.310]} />
         <mesh name="text_7" geometry={text_7.geometry} material={coloronly19} position={[13.179, -15.916, 0.446]} rotation={[Math.PI / 2, 0, 0]} scale={[0.455, 0.455, 0.01]} />
-        {/* <mesh name="cube_text1" geometry={cube_text1.geometry} material={coloronly15} position={[15.622, -12.856, 11.316]} rotation={[Math.PI / 2, Math.PI / 2, 0]} scale={[1.638, 1.638, 1.638]} /> */}
+        <mesh name="cube_text1" geometry={cube_text1.geometry} material={coloronly20} position={[15.632, -12.846, 11.316]} rotation={[Math.PI / 2, Math.PI / 2, 0]} scale={[1.638, 1.638, 1.638]} />
+        <mesh name="cube_text2" geometry={cube_text2.geometry} material={coloronly20} position={[9.418, -13.985, 11.316]} rotation={[Math.PI / 2, 0, 0]} scale={[1.638, 1.638, 1.638]} />
+        <mesh name="cube_text3" geometry={cube_text3.geometry} material={coloronly20} position={[14.676, -13.944, 11.316]} rotation={[Math.PI / 2, Math.PI / 4, 0]} scale={[2.249, 2.249, 2.249]} />
         {/* <mesh name="cube_33" geometry={cube_33.geometry} material={coloronly20} position={[5.757, -15.060, 1.119]} rotation={[0, 0, 0]} scale={[11.106, 0.883, 1.236]} /> */}
         {/* </EffectComposer> */}
       </group>
