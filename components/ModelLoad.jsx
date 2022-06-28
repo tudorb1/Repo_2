@@ -588,7 +588,7 @@ const Model = (props) => {
   useFrame((state, delta) => {
     const action = actions["CameraAction"];
     const offset = scroll.offset;
-    console.log('offset-->', offset);
+    // console.log('offset-->', offset);
     action.time = damp(
       action.time,
       action.getClip().duration * offset,
@@ -711,6 +711,7 @@ const Model = (props) => {
 
   function onMouseWheel(e) {
     var delta = e.deltaY;
+    console.log('delta-->', delta);
     if (delta > 0) scroll.scroll.current += 0.01;
     else scroll.scroll.current -= 0.01;
   }
