@@ -749,7 +749,9 @@ const Model = (props) => {
                     />
                   </div>
                   <div className={styles.label}>
-                    <h1>ORGANIZATION ID NAME - Lovin</h1>
+                    <h1
+                      style={{ marginTop: '-1px' }}
+                    >ORGANIZATION ID NAME - Lovin</h1>
                     <p
                     // style={{ marginTop: '-3px' }} 
                     >
@@ -772,7 +774,9 @@ const Model = (props) => {
                     />
                   </div>
                   <div className={styles.label}>
-                    <h1>ORGANIZATION ID NAME - Bishop</h1>
+                    <h1
+                      tyle={{ marginTop: '2px' }}
+                    >ORGANIZATION ID NAME - Bishop</h1>
                     <p
                     // style={{ marginTop: '-3px' }} 
                     >
@@ -824,7 +828,7 @@ const Model = (props) => {
                   <div className={styles.label}>
                     <h1>ORGANIZATION ID NAME - Rust</h1>
                     <p
-                    // style={{ marginTop: '-4px' }} 
+                      style={{ marginTop: '-4px' }}
                     >
                       Chef Comptroller (Financials) Never shot a gun yet he
                       always has the money shot. Supply and currency manager;
@@ -875,7 +879,7 @@ const Model = (props) => {
                   <div className={styles.label}>
                     <h1>ORGANIZATION ID NAME - Moon-Bagger</h1>
                     <p
-                    // style={{ marginTop: '-4px' }} 
+                      style={{ marginTop: '-4px' }}
                     >
                       Flag Porteur (Community Manager) As long as he's standing,
                       the movement lives on. Raid strategist; Novice trainer
@@ -925,7 +929,7 @@ const Model = (props) => {
                     // style={{ marginTop: '2px' }} 
                     >ORGANIZATION GROUP NAME - Insurgents</h1>
                     <p
-                    // style={{ marginTop: '-5px' }} 
+                      style={{ marginTop: '-5px' }}
                     >
                       Ximads; Direé; Sanchez; EuroSadBoy; Frank Beaucoup Beaus
                       (Artists) Creators of propaganda. The movement paints the
@@ -976,7 +980,7 @@ const Model = (props) => {
                   <div className={styles.label}>
                     <h1>ORGANIZATION GROUP NAME - Strategist</h1>
                     <p
-                    // style={{ marginTop: '-5px' }} 
+                      style={{ marginTop: '-4px' }}
                     >
                       Dyno; Ayhth; Haputt; Jfx187; Mike Costache Advisers; The
                       Beau Coup's consultants M.C. has managed Hedge Funds;
