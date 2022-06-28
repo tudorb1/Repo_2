@@ -575,7 +575,7 @@ const Model = (props) => {
   function animate() {
     requestAnimationFrame(animate);
     nodes.Slider.rotation.z += 0.01;
-    // nodes.Text017.position.x += 0.1;
+    nodes.Text017.position.x += 0.1;
   }
 
   const scroll = useScroll();
