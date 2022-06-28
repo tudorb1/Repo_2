@@ -175,7 +175,7 @@
     // position: absolute;
     // transform: translateX(-50%);
     .teamWrapper {
-      // height:20vh;
+      height: 20vh;
       display: flex;
       justify-content: flex-end;
       position: relative;
@@ -204,7 +204,7 @@
         flex-direction: column;
         padding-left: 15px;
         padding-right: 15px;
-        padding-bottom: 10px;
+        padding-bottom: 0px;
         padding-top: 5px;
         align-items: flex-end;
         text-align: end;
@@ -223,11 +223,14 @@
         //   0% 20%
         // );
         h1 {
-          font-size: 10px;
+          // margin-top: 5px;
+          font-size: 13px;
+          // margin-bottom: 2px;
           font-family: "odachi";
         }
 
         p {
+          // margin-top: 0px;
           font-family: 'Poppin';
           font-size: 5px;
         }
