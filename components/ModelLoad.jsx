@@ -29,7 +29,8 @@ import THREE, {
   LessEqualDepth,
   LessDepth,
   Color,
-  BoxBufferGeometry
+  BoxBufferGeometry,
+  PointLight
 } from "three";
 import styles from "../styles/Component.module.scss";
 import { damp } from "three/src/math/MathUtils";
@@ -44,9 +45,6 @@ import Image from "next/image";
 
 const Model = (props) => {
 
-
-  // const [clicked, setClicked] = useState(false);
-  // Load Model
   const { scene, nodes, animations, cameras, materials } = useGLTF("fin.gltf");
   const { actions } = useAnimations(animations, cameras[0]);
 
@@ -65,8 +63,11 @@ const Model = (props) => {
     color: "#0f0f0f",
   });
 
-  var effect, cube, plane015, cube_text1, cube_text2, cube_text3, cube_139, cube_33, shadow_1, shadow_2, text_1, text_2, text_3, text_4, text_5, text_6, text_7;
+  const lightColor = new MeshStandardMaterial({
+    color: "#3e3c3c",
+  });
 
+  var effect, cube, plane015, cube_text1, cube_text2, cube_text3, cube_139, cube_33, shadow_1, shadow_2, text_1, text_2, text_3, text_4, text_5, text_6, text_7;
 
   const text_index = nodes.Scene.children.findIndex(x => x.name === "Text");
   const text1_index = nodes.Scene.children.findIndex(x => x.name === "Text001");
@@ -77,6 +78,9 @@ const Model = (props) => {
   cube_text2.material = text;
   cube_text3 = nodes.Scene.children[text2_index];
   cube_text3.material = text;
+
+  const cube028_index = nodes.Scene.children.findIndex(x => x.name === "Cube028");
+  nodes.Scene.children[cube028_index].visible = false;
 
   const plane015_index = nodes.Scene.children.findIndex(x => x.name === "Plane015");
   plane015 = nodes.Scene.children[plane015_index];
@@ -89,26 +93,17 @@ const Model = (props) => {
   nodes.Scene.children[cylinder006_index].material = greyColor;
 
   const cylinder017_index = nodes.Scene.children.findIndex(x => x.name === "Cylinder017");
-  nodes.Scene.children[cylinder017_index].children[0].material = greyColor;
-  nodes.Scene.children[cylinder017_index].children[1].material = greyColor;
-  // nodes.Scene.children[cylinder017_index].material.color.set("#5c5757");
-  // nodes.Scene.children[cylinder017_index].visible = false;
-  // console.log(nodes.Scene.children[cylinder017_index]);
+  nodes.Scene.children[cylinder017_index].children[0].material = lightColor;
+  nodes.Scene.children[cylinder017_index].children[1].material = lightColor;
+
+  const cylinder022_index = nodes.Scene.children.findIndex(x => x.name === "Cylinder022");
+  nodes.Scene.children[cylinder022_index].material = greyColor;
 
   const cylinder019_index = nodes.Scene.children.findIndex(x => x.name === "Cylinder019");
   nodes.Scene.children[cylinder019_index].material.color.set("#5c5757");
 
   const cube020_index = nodes.Scene.children.findIndex(x => x.name === "Cube020");
   nodes.Scene.children[cube020_index].children[7].visible = false;
-
-  const text018_index = nodes.Scene.children.findIndex(x => x.name === "Text018");
-  const text018 = nodes.Scene.children[text018_index];
-  text018.material.color.set('#ffffff');
-
-  const text019_index = nodes.Scene.children.findIndex(x => x.name === "Text019");
-  const text019 = nodes.Scene.children[text019_index];
-  text019.material.color.set('#ffffff');
-
 
   const cube_139_index = nodes.Scene.children.findIndex(x => x.name === "Cube047");
   cube_139 = nodes.Scene.children[cube_139_index];
@@ -248,6 +243,9 @@ const Model = (props) => {
   let coloronly21 = new MeshStandardMaterial({
     color: "#220b2d",
   });
+  let coloronly22 = new MeshStandardMaterial({
+    color: "#555555",
+  });
   let coloronly18 = new MeshStandardMaterial({
     color: "#cf33ff",
     transparent: true,
@@ -377,7 +375,7 @@ const Model = (props) => {
     { childID: "3thfloor", mtl: coloronly4 },
     { childID: "4thfloor", mtl: coloronly4 },
     { childID: "Cube005", mtl: coloronly4 },
-    // { childID: "Cylinder021", mtl: coloronly3 },
+    { childID: "Cylinder021", mtl: coloronly3 },
     { childID: "Cube007", mtl: coloronly4 },
     { childID: "Cube008", mtl: coloronly3 },
     { childID: "Cube014", mtl: coloronly2 },
@@ -416,7 +414,8 @@ const Model = (props) => {
     { childID: "Text003", mtl: coloronly13 },
     { childID: "Text006", mtl: coloronly18 },
     { childID: "Text008", mtl: coloronly17 },
-    // { childID: "Text019", mtl: coloronly },
+    { childID: "Text018", mtl: coloronly22 },
+    { childID: "Text019", mtl: coloronly22 },
     { childID: "Text020", mtl: coloronly },
     { childID: "Text021", mtl: coloronly },
     { childID: "Plane010", mtl: coloronly },
@@ -563,7 +562,6 @@ const Model = (props) => {
   function animate() {
     requestAnimationFrame(animate);
     nodes.Slider.rotation.z += 0.01;
-
     // nodes.Text017.position.x += 0.1;
   }
 
@@ -697,6 +695,12 @@ const Model = (props) => {
     );
   }
 
+  function onMouseWheel(e) {
+    var delta = e.deltaY;
+    if (delta > 0) scroll.scroll.current += 0.01;
+    else scroll.scroll.current -= 0.01;
+  }
+
   function Team() {
     function replace(hide, show) {
       document.getElementById(hide).style.display = "none";
@@ -704,7 +708,7 @@ const Model = (props) => {
     }
     return (
       <Html transform occlude position={[4, -5, 19]} rotation={[1.6, 1.6, 0]}>
-        <div className={styles.teamContainer}>
+        <div className={styles.teamContainer} onWheel={onMouseWheel}>
           <Swiper
             grabCursor={true}
             effect={"creative"}
@@ -743,6 +747,7 @@ const Model = (props) => {
                     </p>
                   </div>
                   <div className={styles.line} />
+                  <div className={styles.line2} />
                   <div className={styles.circle} />
                 </div>
                 <div className={styles.teamWrapper}>
@@ -763,6 +768,7 @@ const Model = (props) => {
                     </p>
                   </div>
                   <div className={styles.line} />
+                  <div className={styles.line2} />
                   <div className={styles.circle} />
                 </div>
               </div>
@@ -787,6 +793,7 @@ const Model = (props) => {
                     </p>
                   </div>
                   <div className={styles.line} />
+                  <div className={styles.line2} />
                   <div className={styles.circle} />
                 </div>
                 <div className={styles.teamWrapper}>
@@ -808,49 +815,7 @@ const Model = (props) => {
                     </p>
                   </div>
                   <div className={styles.line} />
-                  <div className={styles.circle} />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={styles.collection}>
-                <div className={styles.teamWrapper}>
-                  <div className={styles.teamImage}>
-                    <Image
-                      src="/Assets/team/Gman.png"
-                      alt=""
-                      width={200}
-                      height={200}
-                    />
-                  </div>
-                  <div className={styles.label}>
-                    <h1>ORGANIZATION ID NAME - Gman</h1>
-                    <p>
-                      The White Chapeau (Protection) Builder of walls of fire
-                      and brimstone. Security of the Beau Coup servers;
-                    </p>
-                  </div>
-                  <div className={styles.line} />
-                  <div className={styles.circle} />
-                </div>
-                <div className={styles.teamWrapper}>
-                  <div className={styles.teamImage}>
-                    <Image
-                      src="/Assets/team/Moon-Bagger.png"
-                      alt=""
-                      width={200}
-                      height={200}
-                    />
-                  </div>
-                  <div className={styles.label}>
-                    <h1>ORGANIZATION ID NAME - Moon-Bagger</h1>
-                    <p>
-                      Flag Porteur (Community Manager) As long as he's standing,
-                      the movement lives on. Raid strategist; Novice trainer
-                      Well connected in the Asian space; Web 3.0 adaptor
-                    </p>
-                  </div>
-                  <div className={styles.line} />
+                  <div className={styles.line2} />
                   <div className={styles.circle} />
                 </div>
               </div>
@@ -875,6 +840,53 @@ const Model = (props) => {
                     </p>
                   </div>
                   <div className={styles.line} />
+                  <div className={styles.line2} />
+                  <div className={styles.circle} />
+                </div>
+                <div className={styles.teamWrapper}>
+                  <div className={styles.teamImage}>
+                    <Image
+                      src="/Assets/team/Moon-Bagger.png"
+                      alt=""
+                      width={200}
+                      height={200}
+                    />
+                  </div>
+                  <div className={styles.label}>
+                    <h1>ORGANIZATION ID NAME - Moon-Bagger</h1>
+                    <p>
+                      Flag Porteur (Community Manager) As long as he's standing,
+                      the movement lives on. Raid strategist; Novice trainer
+                      Well connected in the Asian space; Web 3.0 adaptor
+                    </p>
+                  </div>
+                  <div className={styles.line} />
+                  <div className={styles.line2} />
+                  <div className={styles.circle} />
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className={styles.collection}>
+                <div className={styles.teamWrapper}>
+                  <div className={styles.teamImage}>
+                    <Image
+                      src="/Assets/team/Gman.png"
+                      alt=""
+                      width={200}
+                      height={200}
+                    />
+                  </div>
+                  <div className={styles.label}>
+                    <h1>ORGANIZATION ID NAME - Gman</h1>
+                    <p>
+                      The White Chapeau (Protection) Builder of walls of fire
+                      and brimstone. Security of the Beau Coup servers;
+                    </p>
+                  </div>
+
+                  <div className={styles.line} />
+                  <div className={styles.line2} />
                   <div className={styles.circle} />
                 </div>
                 <div className={styles.teamWrapper}>
@@ -896,6 +908,7 @@ const Model = (props) => {
                     </p>
                   </div>
                   <div className={styles.line} />
+                  <div className={styles.line2} />
                   <div className={styles.circle} />
                 </div>
               </div>
@@ -920,6 +933,7 @@ const Model = (props) => {
                     </p>
                   </div>
                   <div className={styles.line} />
+                  <div className={styles.line2} />
                   <div className={styles.circle} />
                 </div>
                 <div className={styles.teamWrapper}>
@@ -941,6 +955,7 @@ const Model = (props) => {
                     </p>
                   </div>
                   <div className={styles.line} />
+                  <div className={styles.line2} />
                   <div className={styles.circle} />
                 </div>
               </div>
@@ -980,15 +995,30 @@ const Model = (props) => {
           name={'light_2'}
           castShadow={true}
         />
-        <SpotLight
-          position={[6, -3.8, 12.3]}
-          distance={10}
-          angle={3}
-          attenuation={4}
-          color={"#fb00ff"}
-          anglePower={6}
-          target={nodes.Plane016}
-        />
+        <group
+          name="light_3"
+          position={[10.030, -2.54, 14.750]}
+        >
+          <pointLight
+            color={"#fb00ff"}
+            power={50}
+            intensity={3}
+            distance={15}
+            decay={2}
+          />
+        </group>
+        <group
+          name="light_3"
+          position={[8, -2, 19]}
+        >
+          <pointLight
+            color={"#fb00ff"}
+            power={50}
+            intensity={3}
+            distance={15}
+            decay={2}
+          />
+        </group>
         <group
           name="spot_light_0_0"
           position={[10.100, -15.860, 4.840]}
@@ -1123,24 +1153,37 @@ const Model = (props) => {
             <meshStandardMaterial color={"#464343"} />
           </mesh> */}
         </group>
-        <pointLight
-          color={"#fb00ff"}
-          position={[4, -11, 13]}
-          power={50}
-          distance={10}
-          decay={2}
-        />
-        <pointLight
-          color={"#fb00ff"}
+        <group
+          name="point_light_6"
+          position={[-0.970, -11.520, 16.380]}
+        >
+          <pointLight
+            intensity={1.839}
+            color={"#fb00ff"}
+            power={25}
+            distance={15}
+            decay={2}
+          />
+        </group>
+        <group
+          name="point_light_7"
           position={[6.5, -15, 30]}
-          power={100}
-          distance={6}
-          decay={2}
-        />
-        <group rotation={[0, 0.1, 0]}>
+        >
           <pointLight
             color={"#fb00ff"}
-            position={[-0.5, -9, 25]}
+            power={100}
+            distance={6}
+            decay={2}
+          />
+        </group>
+        <group
+          name="point_light_8"
+          position={[0.710, -8.750, 25.230]}
+          rotation={[0, 0.1, 0]}
+        >
+          <pointLight
+            color={"#fb00ff"}
+            intensity={12}
             power={200}
             distance={4}
             decay={2}
