@@ -712,8 +712,8 @@ const Model = (props) => {
   function onMouseWheel(e) {
     var delta = e.deltaY;
     console.log('delta-->', delta);
-    if (delta > 0) scroll.scroll.current += 0.01;
-    else scroll.scroll.current -= 0.01;
+    if (delta > 0) scroll.scroll.current += delta * 0.0001;
+    else scroll.scroll.current -= delta * 0.0001;
   }
 
   function Team() {
