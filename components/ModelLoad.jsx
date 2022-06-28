@@ -753,7 +753,7 @@ const Model = (props) => {
                       style={{ marginTop: '-1px' }}
                     >ORGANIZATION ID NAME - Lovin</h1>
                     <p
-                    // style={{ marginTop: '-3px' }} 
+                      style={{ marginTop: '-3px' }}
                     >
                       Mastermind (Project Manager). First to live and die for
                       the movement Built identities for 15 years. Has worked
@@ -778,7 +778,7 @@ const Model = (props) => {
                       tyle={{ marginTop: '2px' }}
                     >ORGANIZATION ID NAME - Bishop</h1>
                     <p
-                    // style={{ marginTop: '-3px' }} 
+                      style={{ marginTop: '-3px' }}
                     >
                       The Black Chapeau (Developer) Beau Coup's shepherd of
                       clever minds. Connects the Sifter channels. Crypto
@@ -803,9 +803,11 @@ const Model = (props) => {
                     />
                   </div>
                   <div className={styles.label}>
-                    <h1>ORGANIZATION ID NAME - Smoke</h1>
+                    <h1
+                      style={{ marginTop: '3px' }}
+                    >ORGANIZATION ID NAME - Smoke</h1>
                     <p
-                    // style={{ marginTop: '-5px' }} 
+                      style={{ marginTop: '-2px' }}
                     >
                       Orateur extraordinaire (Marketer) Propaganda leader,
                       Audesser's most wanted. Recruited from web 2.0 for his
@@ -826,7 +828,9 @@ const Model = (props) => {
                     />
                   </div>
                   <div className={styles.label}>
-                    <h1>ORGANIZATION ID NAME - Rust</h1>
+                    <h1
+                      style={{ marginTop: '1px' }}
+                    >ORGANIZATION ID NAME - Rust</h1>
                     <p
                       style={{ marginTop: '-4px' }}
                     >
@@ -854,9 +858,11 @@ const Model = (props) => {
                     />
                   </div>
                   <div className={styles.label}>
-                    <h1>ORGANIZATION ID NAME - MercedHees</h1>
+                    <h1
+                      style={{ marginTop: '3px' }}
+                    >ORGANIZATION ID NAME - MercedHees</h1>
                     <p
-                    // style={{ marginTop: '-4px' }} 
+                      style={{ marginTop: '-3px' }}
                     >
                       Beau Crowd whisperer (Community Manager) He makes your
                       head spin and you're gonna love it. Defense strategist;
@@ -877,9 +883,11 @@ const Model = (props) => {
                     />
                   </div>
                   <div className={styles.label}>
-                    <h1>ORGANIZATION ID NAME - Moon-Bagger</h1>
+                    <h1
+                      style={{ marginTop: '1px' }}
+                    >ORGANIZATION ID NAME - Moon-Bagger</h1>
                     <p
-                      style={{ marginTop: '-4px' }}
+                      style={{ marginTop: '-5px' }}
                     >
                       Flag Porteur (Community Manager) As long as he's standing,
                       the movement lives on. Raid strategist; Novice trainer
@@ -904,7 +912,9 @@ const Model = (props) => {
                     />
                   </div>
                   <div className={styles.label}>
-                    <h1>ORGANIZATION ID NAME - Gman</h1>
+                    <h1
+                      style={{ marginTop: '2px' }}
+                    >ORGANIZATION ID NAME - Gman</h1>
                     <p>
                       The White Chapeau (Protection) Builder of walls of fire
                       and brimstone. Security of the Beau Coup servers;
@@ -926,7 +936,7 @@ const Model = (props) => {
                   </div>
                   <div className={styles.label}>
                     <h1
-                    // style={{ marginTop: '2px' }} 
+                      style={{ marginTop: '0px' }}
                     >ORGANIZATION GROUP NAME - Insurgents</h1>
                     <p
                       style={{ marginTop: '-5px' }}
@@ -955,9 +965,11 @@ const Model = (props) => {
                     />
                   </div>
                   <div className={styles.label}>
-                    <h1>ORGANIZATION GROUP NAME - Enforcers</h1>
+                    <h1
+                      style={{ marginTop: '3px' }}
+                    >ORGANIZATION GROUP NAME - Enforcers</h1>
                     <p
-                    // style={{ marginTop: '-5px' }} 
+                      style={{ marginTop: '-5px' }}
                     >
                       Darkblizzard; DocHuckleberry; Samseo; HarryNiu HKJC; K7;
                       Matei; Siomay; Ganjagymgod; HotmessMellow Moderators; The
@@ -978,7 +990,9 @@ const Model = (props) => {
                     />
                   </div>
                   <div className={styles.label}>
-                    <h1>ORGANIZATION GROUP NAME - Strategist</h1>
+                    <h1
+                      style={{ marginTop: '0px' }}
+                    >ORGANIZATION GROUP NAME - Strategist</h1>
                     <p
                       style={{ marginTop: '-4px' }}
                     >
