@@ -47,7 +47,8 @@ export default function ForCanvas() {
           shadows
         >
           <PerspectiveCamera />
-          <fog attach="fog" args={["#050505", 40, 60]} />
+          {/* <fog attach="fog" args={["#050505", 40, 60]} /> */}
+          <fog attach="fog" args={["#050505", 280, 350]} />
           {/* <directionalLight position={[20, 100, 0]} /> */}
           {/* <ambientLight position={[115.634 ,-0.199677, 151.107 ]} scale={1} /> */}
           <ambientLight position={[-38.1183, -269.879, 175.15]} scale={1} />

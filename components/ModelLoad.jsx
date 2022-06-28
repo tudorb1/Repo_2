@@ -67,7 +67,7 @@ const Model = (props) => {
     color: "#3e3c3c",
   });
 
-  var effect, cube, plane015, cube_text1, cube_text2, cube_text3, cube_139, cube_33, shadow_1, shadow_2, text_1, text_2, text_3, text_4, text_5, text_6, text_7;
+  var effect, cube, plane015, cube_text1, cube_text2, cube_text3, cube_139, cube_33, shadow_1, shadow_2, text_017, text_1, text_2, text_3, text_4, text_5, text_6, text_7;
 
   const text_index = nodes.Scene.children.findIndex(x => x.name === "Text");
   const text1_index = nodes.Scene.children.findIndex(x => x.name === "Text001");
@@ -91,13 +91,14 @@ const Model = (props) => {
   nodes.Scene.children[cylinder005_index].material = greyColor;
   const cylinder006_index = nodes.Scene.children.findIndex(x => x.name === "Cylinder006");
   nodes.Scene.children[cylinder006_index].material = greyColor;
-
+  // const cylinder035_index = nodes.Scene.children.findIndex(x => x.name === "Cylinder035");
+  // nodes.Scene.children[cylinder035_index].material = coloronly6;
   const cylinder017_index = nodes.Scene.children.findIndex(x => x.name === "Cylinder017");
   nodes.Scene.children[cylinder017_index].children[0].material = lightColor;
   nodes.Scene.children[cylinder017_index].children[1].material = lightColor;
 
   const cylinder022_index = nodes.Scene.children.findIndex(x => x.name === "Cylinder022");
-  nodes.Scene.children[cylinder022_index].material = greyColor;
+  nodes.Scene.children[cylinder022_index].material = lightColor;
 
   const cylinder019_index = nodes.Scene.children.findIndex(x => x.name === "Cylinder019");
   nodes.Scene.children[cylinder019_index].material.color.set("#5c5757");
@@ -111,6 +112,9 @@ const Model = (props) => {
 
   const cube_33_index = nodes.Scene.children.findIndex(x => x.name === "Cube033");
   cube_33 = nodes.Scene.children[cube_33_index];
+
+  const text_index_017 = nodes.Scene.children.findIndex(x => x.name === "Text017");
+  text_017 = nodes.Scene.children[text_index_017];
 
   const text_index_1 = nodes.Scene.children.findIndex(x => x.name === "Text003");
   text_1 = nodes.Scene.children[text_index_1];
@@ -190,6 +194,13 @@ const Model = (props) => {
     transparent: true,
     side: DoubleSide,
     opacity: 0.35
+    // defines: materials.Coffee,
+  });
+  let coloronly23 = new MeshStandardMaterial({
+    color: "#8a2900",
+    transparent: true,
+    side: DoubleSide,
+    opacity: 0.5
     // defines: materials.Coffee,
   });
   let coloronly13 = new MeshStandardMaterial({
@@ -289,12 +300,13 @@ const Model = (props) => {
     map: Body[8],
   });
   let coloronly6 = new MeshStandardMaterial({
-    color: "#0a0a0a",
-    aoMap: Body[10],
+    // color: "#0a0a0a",
+    color: "#222222",
+    // aoMap: Body[10],
     map: Body[11],
     // displacementMap: Body[12],
     normalMap: Body[13],
-    roughnessMap: Body[14],
+    // roughnessMap: Body[14],
   });
   let coloronly7 = new MeshStandardMaterial({
     // map: Body[15],
@@ -396,6 +408,7 @@ const Model = (props) => {
     { childID: "Cube029", mtl: coloronly6 },
     { childID: "Cube128", mtl: coloronly6 },
     { childID: "Cube121", mtl: coloronly6 },
+    { childID: "Cube123", mtl: coloronly6 },
     { childID: "Cube122", mtl: coloronly6 },
     { childID: "Cube125", mtl: coloronly6 },
     { childID: "Cube127", mtl: coloronly6 },
@@ -431,7 +444,7 @@ const Model = (props) => {
     { childID: "Text014", mtl: coloronly8 },
     { childID: "Text015", mtl: coloronly9 },
     { childID: "Text016", mtl: coloronly1 },
-    { childID: "Text017", mtl: coloronly1 },
+    { childID: "Text017", mtl: coloronly23 },
     { childID: "Text013", mtl: coloronly3 },
     { childID: "Text022", mtl: coloronly3 },
     { childID: "G-__556086.005", mtl: coloronly },
@@ -575,6 +588,7 @@ const Model = (props) => {
   useFrame((state, delta) => {
     const action = actions["CameraAction"];
     const offset = scroll.offset;
+    console.log('offset-->', offset);
     action.time = damp(
       action.time,
       action.getClip().duration * offset,
@@ -1256,6 +1270,7 @@ const Model = (props) => {
         <mesh name="cube_text2" geometry={cube_text2.geometry} material={coloronly20} position={[9.418, -13.985, 11.316]} rotation={[Math.PI / 2, 0, 0]} scale={[1.638, 1.638, 1.638]} />
         <mesh name="cube_text3" geometry={cube_text3.geometry} material={coloronly20} position={[14.676, -13.944, 11.316]} rotation={[Math.PI / 2, Math.PI / 4, 0]} scale={[2.249, 2.249, 2.249]} />
         <mesh name="plane015" geometry={plane015.geometry} material={coloronly21} position={[0.740, 6, 15]} rotation={[Math.PI / 2, 0, Math.PI]} scale={[5.460, 10.421, 1.421]} />
+        {/* <mesh name="text_017" geometry={text_017.geometry} material={lightColor} position={[32.573, -8.238, 110.366]} rotation={[-1.484, 0, 3.141]} scale={[13.055, 13.055, 13.055]} /> */}
         {/* <mesh name="cube_33" geometry={cube_33.geometry} material={coloronly20} position={[5.757, -15.060, 1.119]} rotation={[0, 0, 0]} scale={[11.106, 0.883, 1.236]} /> */}
         {/* </EffectComposer> */}
       </group>
