@@ -664,93 +664,6 @@ const Model = (props) => {
   // });
 
   animate();
-  function Nav() {
-    const [toggle, setToggle] = useState(false);
-
-    return (
-      <Html>
-        <div className={styles.nav}>
-          <div
-            className={styles.toggleContainer}
-            onClick={() => {
-              setToggle(true);
-            }}
-          >
-            {toggle ? (
-              ""
-            ) : (
-              <>
-                <Image
-                  src="/Assets/nav/toggle-1.png"
-                  alt=""
-                  width={60}
-                  height={20}
-                />
-                <Image
-                  src="/Assets/nav/toggle-2.png"
-                  alt=""
-                  width={60}
-                  height={20}
-                />
-              </>
-            )}
-          </div>
-          <div className={styles.menuContainer}>
-            <div className={styles.pentagon}>Meet your Sifter</div>
-            <div className={styles.social}>
-              <FaTwitter size={30} />
-            </div>
-          </div>
-        </div>
-        {toggle && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-              transition: {
-                duration: 0.3,
-              },
-            }}
-            exit={{
-              opacity: 0,
-              transition: {
-                duration: 0.3,
-              },
-            }}
-            className={styles.popUp}
-          >
-            <div className={styles.toggleWrapper}>
-              <div className={styles.toggleContent}>
-                <div
-                // onClick={() => {
-                // setClicked(true);
-                // scroll2.offset.toFixed(10);
-                // }}
-                >
-                  <p>ABOUT</p>
-                </div>
-                <div>
-                  <p>TEAM</p>
-                </div>
-                <div>
-                  <p>ROADMAP</p>
-                </div>
-                <div>
-                  <p>MEET YOUR SIFTER</p>
-                </div>
-              </div>
-              <div
-                className={styles.closeBtn}
-                onClick={() => {
-                  setToggle(false);
-                }}
-              ></div>
-            </div>
-          </motion.div>
-        )}
-      </Html>
-    );
-  }
 
   function onMouseWheel(e) {
     // console.log('scroll->', scroll.offset);
@@ -771,28 +684,31 @@ const Model = (props) => {
 
   function RoadMap() {
     return (
-      <Html transform occlude position={[3.749, -13.3, 29.601]} rotation={[1.571, 0, 0]}>
-        <div className={styles.roadmap}>
-          <div className={styles.part1} >
-            <div className={styles.text} >
-              Undisturbed activities: <br />
-              Expanding the treasury<br />
-              Learn-ro-earn
+      <mesh>
+
+        <Html transform occlude position={[3.749, -13.3, 29.601]} rotation={[1.571, 0, 0]}>
+          <div className={styles.roadmap}>
+            <div className={styles.part1} >
+              <div className={styles.text} >
+                Undisturbed activities: <br />
+                Expanding the treasury<br />
+                Learn-ro-earn
+              </div>
+              <div className={styles.line} />
+              <div className={styles.circle} />
             </div>
-            <div className={styles.line} />
-            <div className={styles.circle} />
-          </div>
-          <div className={styles.part2} >
-            <div className={styles.text} >
-              Undisturbed activities: <br />
-              Expanding the treasury<br />
-              Learn-ro-earn
+            <div className={styles.part2} >
+              <div className={styles.text} >
+                Undisturbed activities: <br />
+                Expanding the treasury<br />
+                Learn-ro-earn
+              </div>
+              <div className={styles.line} />
+              <div className={styles.circle} />
             </div>
-            <div className={styles.line} />
-            <div className={styles.circle} />
           </div>
-        </div>
-      </Html>
+        </Html>
+      </mesh>
     );
   }
 
@@ -802,9 +718,9 @@ const Model = (props) => {
       document.getElementById(show).style.display = "block";
     }
     return (
-      <mesh>
+      <mesh  >
         <Html transform occlude position={[4, -5, 19]} rotation={[1.6, 1.6, 0]}>
-          <div onWheel={onMouseWheel} className={styles.teamContainer} >
+          <div className={styles.teamContainer}>
             <Swiper
               grabCursor={true}
               effect={"creative"}
