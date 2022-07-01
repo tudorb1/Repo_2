@@ -121,6 +121,8 @@ const Model = (props) => {
   const text_index = nodes.Scene.children.findIndex(x => x.name === "Text");
   const text1_index = nodes.Scene.children.findIndex(x => x.name === "Text001");
   const text2_index = nodes.Scene.children.findIndex(x => x.name === "Text002");
+  const text022_index = nodes.Scene.children.findIndex(x => x.name === "Text022");
+  nodes.Scene.children[text022_index].visible = false;
   cube_text1 = nodes.Scene.children[text_index];
   cube_text1.material = text;
   cube_text2 = nodes.Scene.children[text1_index];
@@ -769,8 +771,27 @@ const Model = (props) => {
 
   function RoadMap() {
     return (
-      <Html>
-
+      <Html transform occlude position={[3.749, -13.3, 29.601]} rotation={[1.571, 0, 0]}>
+        <div className={styles.roadmap}>
+          <div className={styles.part1} >
+            <div className={styles.text} >
+              Undisturbed activities: <br />
+              Expanding the treasury<br />
+              Learn-ro-earn
+            </div>
+            <div className={styles.line} />
+            <div className={styles.circle} />
+          </div>
+          <div className={styles.part2} >
+            <div className={styles.text} >
+              Undisturbed activities: <br />
+              Expanding the treasury<br />
+              Learn-ro-earn
+            </div>
+            <div className={styles.line} />
+            <div className={styles.circle} />
+          </div>
+        </div>
       </Html>
     );
   }
@@ -781,300 +802,302 @@ const Model = (props) => {
       document.getElementById(show).style.display = "block";
     }
     return (
-      <Html transform occlude position={[4, -5, 19]} rotation={[1.6, 1.6, 0]}>
-        <div onWheel={onMouseWheel} className={styles.teamContainer} >
-          <Swiper
-            grabCursor={true}
-            effect={"creative"}
-            pagination={{
-              clickable: true,
-            }}
-            creativeEffect={{
-              prev: {
-                // shadow: true,
-                translate: ["-100%", 0, -1],
-              },
-              next: {
-                translate: ["100%", 0, 0],
-              },
-            }}
-            modules={[EffectCreative, Pagination]}
-            className="mySwiper3"
-          >
-            <SwiperSlide>
-              <div className={styles.collection}>
-                <div className={styles.teamWrapper}>
-                  <div className={styles.teamImage}>
-                    <Image
-                      src="/Assets/team/Lovin.jpeg"
-                      alt=""
-                      width={200}
-                      height={200}
-                    />
+      <mesh>
+        <Html transform occlude position={[4, -5, 19]} rotation={[1.6, 1.6, 0]}>
+          <div onWheel={onMouseWheel} className={styles.teamContainer} >
+            <Swiper
+              grabCursor={true}
+              effect={"creative"}
+              pagination={{
+                clickable: true,
+              }}
+              creativeEffect={{
+                prev: {
+                  // shadow: true,
+                  translate: ["-100%", 0, -1],
+                },
+                next: {
+                  translate: ["100%", 0, 0],
+                },
+              }}
+              modules={[EffectCreative, Pagination]}
+              className="mySwiper3"
+            >
+              <SwiperSlide>
+                <div className={styles.collection}>
+                  <div className={styles.teamWrapper}>
+                    <div className={styles.teamImage}>
+                      <Image
+                        src="/Assets/team/Lovin.jpeg"
+                        alt=""
+                        width={200}
+                        height={200}
+                      />
+                    </div>
+                    <div className={styles.label}>
+                      <h1
+                        style={{ marginTop: '-1px' }}
+                      >ORGANIZATION ID NAME - Lovin</h1>
+                      <p
+                        style={{ marginTop: '-3px' }}
+                      >
+                        Mastermind (Project Manager). First to live and die for
+                        the movement Built identities for 15 years. Has worked
+                        incognito with Audesser brands: Mercedes, Pepsi, Rockstar;
+                      </p>
+                    </div>
+                    <div className={styles.line} />
+                    <div className={styles.line2} />
+                    <div className={styles.circle} />
                   </div>
-                  <div className={styles.label}>
-                    <h1
-                      style={{ marginTop: '-1px' }}
-                    >ORGANIZATION ID NAME - Lovin</h1>
-                    <p
-                      style={{ marginTop: '-3px' }}
-                    >
-                      Mastermind (Project Manager). First to live and die for
-                      the movement Built identities for 15 years. Has worked
-                      incognito with Audesser brands: Mercedes, Pepsi, Rockstar;
-                    </p>
+                  <div className={styles.teamWrapper}>
+                    <div className={styles.teamImage}>
+                      <Image
+                        src="/Assets/team/Bishop.png"
+                        alt=""
+                        width={200}
+                        height={200}
+                      />
+                    </div>
+                    <div className={styles.label}>
+                      <h1
+                        tyle={{ marginTop: '2px' }}
+                      >ORGANIZATION ID NAME - Bishop</h1>
+                      <p
+                        style={{ marginTop: '-3px' }}
+                      >
+                        The Black Chapeau (Developer) Beau Coup's shepherd of
+                        clever minds. Connects the Sifter channels. Crypto
+                        Adaptor, having worked on various Decentralized systems;
+                      </p>
+                    </div>
+                    <div className={styles.line} />
+                    <div className={styles.line2} />
+                    <div className={styles.circle} />
                   </div>
-                  <div className={styles.line} />
-                  <div className={styles.line2} />
-                  <div className={styles.circle} />
                 </div>
-                <div className={styles.teamWrapper}>
-                  <div className={styles.teamImage}>
-                    <Image
-                      src="/Assets/team/Bishop.png"
-                      alt=""
-                      width={200}
-                      height={200}
-                    />
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className={styles.collection}>
+                  <div className={styles.teamWrapper}>
+                    <div className={styles.teamImage}>
+                      <Image
+                        src="/Assets/team/Smoke.png"
+                        alt=""
+                        width={200}
+                        height={200}
+                      />
+                    </div>
+                    <div className={styles.label}>
+                      <h1
+                        style={{ marginTop: '3px' }}
+                      >ORGANIZATION ID NAME - Smoke</h1>
+                      <p
+                        style={{ marginTop: '-2px' }}
+                      >
+                        Orateur extraordinaire (Marketer) Propaganda leader,
+                        Audesser's most wanted. Recruited from web 2.0 for his
+                        talents.
+                      </p>
+                    </div>
+                    <div className={styles.line} />
+                    <div className={styles.line2} />
+                    <div className={styles.circle} />
                   </div>
-                  <div className={styles.label}>
-                    <h1
-                      tyle={{ marginTop: '2px' }}
-                    >ORGANIZATION ID NAME - Bishop</h1>
-                    <p
-                      style={{ marginTop: '-3px' }}
-                    >
-                      The Black Chapeau (Developer) Beau Coup's shepherd of
-                      clever minds. Connects the Sifter channels. Crypto
-                      Adaptor, having worked on various Decentralized systems;
-                    </p>
+                  <div className={styles.teamWrapper}>
+                    <div className={styles.teamImage}>
+                      <Image
+                        src="/Assets/team/Rust.png"
+                        alt=""
+                        width={200}
+                        height={200}
+                      />
+                    </div>
+                    <div className={styles.label}>
+                      <h1
+                        style={{ marginTop: '1px' }}
+                      >ORGANIZATION ID NAME - Rust</h1>
+                      <p
+                        style={{ marginTop: '-4px' }}
+                      >
+                        Chef Comptroller (Financials) Never shot a gun yet he
+                        always has the money shot. Supply and currency manager;
+                        Keeps the organization stable Managed a 70 personnel
+                        company.
+                      </p>
+                    </div>
+                    <div className={styles.line} />
+                    <div className={styles.line2} />
+                    <div className={styles.circle} />
                   </div>
-                  <div className={styles.line} />
-                  <div className={styles.line2} />
-                  <div className={styles.circle} />
                 </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={styles.collection}>
-                <div className={styles.teamWrapper}>
-                  <div className={styles.teamImage}>
-                    <Image
-                      src="/Assets/team/Smoke.png"
-                      alt=""
-                      width={200}
-                      height={200}
-                    />
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className={styles.collection}>
+                  <div className={styles.teamWrapper}>
+                    <div className={styles.teamImage}>
+                      <Image
+                        src="/Assets/team/MercedHees.png"
+                        alt=""
+                        width={200}
+                        height={200}
+                      />
+                    </div>
+                    <div className={styles.label}>
+                      <h1
+                        style={{ marginTop: '3px' }}
+                      >ORGANIZATION ID NAME - MercedHees</h1>
+                      <p
+                        style={{ marginTop: '-3px' }}
+                      >
+                        Beau Crowd whisperer (Community Manager) He makes your
+                        head spin and you're gonna love it. Defense strategist;
+                        Leader in diplomacy.
+                      </p>
+                    </div>
+                    <div className={styles.line} />
+                    <div className={styles.line2} />
+                    <div className={styles.circle} />
                   </div>
-                  <div className={styles.label}>
-                    <h1
-                      style={{ marginTop: '3px' }}
-                    >ORGANIZATION ID NAME - Smoke</h1>
-                    <p
-                      style={{ marginTop: '-2px' }}
-                    >
-                      Orateur extraordinaire (Marketer) Propaganda leader,
-                      Audesser's most wanted. Recruited from web 2.0 for his
-                      talents.
-                    </p>
+                  <div className={styles.teamWrapper}>
+                    <div className={styles.teamImage}>
+                      <Image
+                        src="/Assets/team/Moon-Bagger.png"
+                        alt=""
+                        width={200}
+                        height={200}
+                      />
+                    </div>
+                    <div className={styles.label}>
+                      <h1
+                        style={{ marginTop: '1px' }}
+                      >ORGANIZATION ID NAME - Moon-Bagger</h1>
+                      <p
+                        style={{ marginTop: '-5px' }}
+                      >
+                        Flag Porteur (Community Manager) As long as he's standing,
+                        the movement lives on. Raid strategist; Novice trainer
+                        Well connected in the Asian space; Web 3.0 adaptor
+                      </p>
+                    </div>
+                    <div className={styles.line} />
+                    <div className={styles.line2} />
+                    <div className={styles.circle} />
                   </div>
-                  <div className={styles.line} />
-                  <div className={styles.line2} />
-                  <div className={styles.circle} />
                 </div>
-                <div className={styles.teamWrapper}>
-                  <div className={styles.teamImage}>
-                    <Image
-                      src="/Assets/team/Rust.png"
-                      alt=""
-                      width={200}
-                      height={200}
-                    />
-                  </div>
-                  <div className={styles.label}>
-                    <h1
-                      style={{ marginTop: '1px' }}
-                    >ORGANIZATION ID NAME - Rust</h1>
-                    <p
-                      style={{ marginTop: '-4px' }}
-                    >
-                      Chef Comptroller (Financials) Never shot a gun yet he
-                      always has the money shot. Supply and currency manager;
-                      Keeps the organization stable Managed a 70 personnel
-                      company.
-                    </p>
-                  </div>
-                  <div className={styles.line} />
-                  <div className={styles.line2} />
-                  <div className={styles.circle} />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={styles.collection}>
-                <div className={styles.teamWrapper}>
-                  <div className={styles.teamImage}>
-                    <Image
-                      src="/Assets/team/MercedHees.png"
-                      alt=""
-                      width={200}
-                      height={200}
-                    />
-                  </div>
-                  <div className={styles.label}>
-                    <h1
-                      style={{ marginTop: '3px' }}
-                    >ORGANIZATION ID NAME - MercedHees</h1>
-                    <p
-                      style={{ marginTop: '-3px' }}
-                    >
-                      Beau Crowd whisperer (Community Manager) He makes your
-                      head spin and you're gonna love it. Defense strategist;
-                      Leader in diplomacy.
-                    </p>
-                  </div>
-                  <div className={styles.line} />
-                  <div className={styles.line2} />
-                  <div className={styles.circle} />
-                </div>
-                <div className={styles.teamWrapper}>
-                  <div className={styles.teamImage}>
-                    <Image
-                      src="/Assets/team/Moon-Bagger.png"
-                      alt=""
-                      width={200}
-                      height={200}
-                    />
-                  </div>
-                  <div className={styles.label}>
-                    <h1
-                      style={{ marginTop: '1px' }}
-                    >ORGANIZATION ID NAME - Moon-Bagger</h1>
-                    <p
-                      style={{ marginTop: '-5px' }}
-                    >
-                      Flag Porteur (Community Manager) As long as he's standing,
-                      the movement lives on. Raid strategist; Novice trainer
-                      Well connected in the Asian space; Web 3.0 adaptor
-                    </p>
-                  </div>
-                  <div className={styles.line} />
-                  <div className={styles.line2} />
-                  <div className={styles.circle} />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={styles.collection}>
-                <div className={styles.teamWrapper}>
-                  <div className={styles.teamImage}>
-                    <Image
-                      src="/Assets/team/Gman.png"
-                      alt=""
-                      width={200}
-                      height={200}
-                    />
-                  </div>
-                  <div className={styles.label}>
-                    <h1
-                      style={{ marginTop: '2px' }}
-                    >ORGANIZATION ID NAME - Gman</h1>
-                    <p>
-                      The White Chapeau (Protection) Builder of walls of fire
-                      and brimstone. Security of the Beau Coup servers;
-                    </p>
-                  </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className={styles.collection}>
+                  <div className={styles.teamWrapper}>
+                    <div className={styles.teamImage}>
+                      <Image
+                        src="/Assets/team/Gman.png"
+                        alt=""
+                        width={200}
+                        height={200}
+                      />
+                    </div>
+                    <div className={styles.label}>
+                      <h1
+                        style={{ marginTop: '2px' }}
+                      >ORGANIZATION ID NAME - Gman</h1>
+                      <p>
+                        The White Chapeau (Protection) Builder of walls of fire
+                        and brimstone. Security of the Beau Coup servers;
+                      </p>
+                    </div>
 
-                  <div className={styles.line} />
-                  <div className={styles.line2} />
-                  <div className={styles.circle} />
+                    <div className={styles.line} />
+                    <div className={styles.line2} />
+                    <div className={styles.circle} />
+                  </div>
+                  <div className={styles.teamWrapper}>
+                    <div className={styles.teamImage}>
+                      <Image
+                        src="/Assets/team/Insurgents.png"
+                        alt=""
+                        width={200}
+                        height={200}
+                      />
+                    </div>
+                    <div className={styles.label}>
+                      <h1
+                        style={{ marginTop: '0px' }}
+                      >ORGANIZATION GROUP NAME - Insurgents</h1>
+                      <p
+                        style={{ marginTop: '-5px' }}
+                      >
+                        Ximads; Direé; Sanchez; EuroSadBoy; Frank Beaucoup Beaus
+                        (Artists) Creators of propaganda. The movement paints the
+                        world with their hands. Worked with brands such as: Nike;
+                        Rebook including many more;
+                      </p>
+                    </div>
+                    <div className={styles.line} />
+                    <div className={styles.line2} />
+                    <div className={styles.circle} />
+                  </div>
                 </div>
-                <div className={styles.teamWrapper}>
-                  <div className={styles.teamImage}>
-                    <Image
-                      src="/Assets/team/Insurgents.png"
-                      alt=""
-                      width={200}
-                      height={200}
-                    />
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className={styles.collection}>
+                  <div className={styles.teamWrapper}>
+                    <div className={styles.teamImage}>
+                      <Image
+                        src="/Assets/team/Enforcers.png"
+                        alt=""
+                        width={200}
+                        height={200}
+                      />
+                    </div>
+                    <div className={styles.label}>
+                      <h1
+                        style={{ marginTop: '3px' }}
+                      >ORGANIZATION GROUP NAME - Enforcers</h1>
+                      <p
+                        style={{ marginTop: '-5px' }}
+                      >
+                        Darkblizzard; DocHuckleberry; Samseo; HarryNiu HKJC; K7;
+                        Matei; Siomay; Ganjagymgod; HotmessMellow Moderators; The
+                        Beau Coup's Tier 1
+                      </p>
+                    </div>
+                    <div className={styles.line} />
+                    <div className={styles.line2} />
+                    <div className={styles.circle} />
                   </div>
-                  <div className={styles.label}>
-                    <h1
-                      style={{ marginTop: '0px' }}
-                    >ORGANIZATION GROUP NAME - Insurgents</h1>
-                    <p
-                      style={{ marginTop: '-5px' }}
-                    >
-                      Ximads; Direé; Sanchez; EuroSadBoy; Frank Beaucoup Beaus
-                      (Artists) Creators of propaganda. The movement paints the
-                      world with their hands. Worked with brands such as: Nike;
-                      Rebook including many more;
-                    </p>
+                  <div className={styles.teamWrapper}>
+                    <div className={styles.teamImage}>
+                      <Image
+                        src="/Assets/team/strategist.png"
+                        alt=""
+                        width={200}
+                        height={200}
+                      />
+                    </div>
+                    <div className={styles.label}>
+                      <h1
+                        style={{ marginTop: '0px' }}
+                      >ORGANIZATION GROUP NAME - Strategist</h1>
+                      <p
+                        style={{ marginTop: '-4px' }}
+                      >
+                        Dyno; Ayhth; Haputt; Jfx187; Mike Costache Advisers; The
+                        Beau Coup's consultants M.C. has managed Hedge Funds;
+                        Haputt part of leading VC Asia Dyno Co-founder of 721club,
+                        OpenDAO
+                      </p>
+                    </div>
+                    <div className={styles.line} />
+                    <div className={styles.line2} />
+                    <div className={styles.circle} />
                   </div>
-                  <div className={styles.line} />
-                  <div className={styles.line2} />
-                  <div className={styles.circle} />
                 </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={styles.collection}>
-                <div className={styles.teamWrapper}>
-                  <div className={styles.teamImage}>
-                    <Image
-                      src="/Assets/team/Enforcers.png"
-                      alt=""
-                      width={200}
-                      height={200}
-                    />
-                  </div>
-                  <div className={styles.label}>
-                    <h1
-                      style={{ marginTop: '3px' }}
-                    >ORGANIZATION GROUP NAME - Enforcers</h1>
-                    <p
-                      style={{ marginTop: '-5px' }}
-                    >
-                      Darkblizzard; DocHuckleberry; Samseo; HarryNiu HKJC; K7;
-                      Matei; Siomay; Ganjagymgod; HotmessMellow Moderators; The
-                      Beau Coup's Tier 1
-                    </p>
-                  </div>
-                  <div className={styles.line} />
-                  <div className={styles.line2} />
-                  <div className={styles.circle} />
-                </div>
-                <div className={styles.teamWrapper}>
-                  <div className={styles.teamImage}>
-                    <Image
-                      src="/Assets/team/strategist.png"
-                      alt=""
-                      width={200}
-                      height={200}
-                    />
-                  </div>
-                  <div className={styles.label}>
-                    <h1
-                      style={{ marginTop: '0px' }}
-                    >ORGANIZATION GROUP NAME - Strategist</h1>
-                    <p
-                      style={{ marginTop: '-4px' }}
-                    >
-                      Dyno; Ayhth; Haputt; Jfx187; Mike Costache Advisers; The
-                      Beau Coup's consultants M.C. has managed Hedge Funds;
-                      Haputt part of leading VC Asia Dyno Co-founder of 721club,
-                      OpenDAO
-                    </p>
-                  </div>
-                  <div className={styles.line} />
-                  <div className={styles.line2} />
-                  <div className={styles.circle} />
-                </div>
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-      </Html>
+              </SwiperSlide>
+            </Swiper>
+          </div>
+        </Html>
+      </mesh>
     );
   }
 
