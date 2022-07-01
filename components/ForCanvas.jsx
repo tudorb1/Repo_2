@@ -19,6 +19,7 @@ import { FogExp2, Vector2 } from "three";
 import * as React from 'react';
 import styles from "../styles/Component.module.scss";
 import Model from "./ModelLoad";
+import Image from 'next/image';
 
 
 extend({ EffectComposer, RenderPass, FilmPass, UnrealBloomPass });
@@ -40,9 +41,41 @@ const Effect = () => {
 
 export default function ForCanvas() {
 
+  const [deltaY, setDeltaY] = useState();
+  const [event, setEvent] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
+
+  function onMouseWheel(e) {
+    // console.log('scroll->', scroll.offset);
+    var delta = e.deltaY;
+    setDeltaY(delta);
+    setEvent(!event);
+    // console.log('onwheel-->', delta);
+    // if (scroll.offset >= 0.5 && scroll.offset <= 0.72) {
+    //   scroll.scroll.current += delta * 0.0001;
+    // }
+    // else if (scroll.offset > 0.72) {
+    //   // console.log('here--->');
+    //   scroll.offset = 0.725;
+    //   scroll.scroll.current = 0.725;
+    // }
+  }
+
+  const onHamburgerClick = () => {
+    setShowMenu(true);
+  }
+
+  const onButtonClick = (options) => {
+    if (options === 'close') {
+    }
+    setShowMenu(false);
+  }
+
   return (
     <>
-      <div className={styles.scene} id="div1">
+      <div
+        // onWheel={onMouseWheel}
+        className={styles.scene} id="div1">
         <Canvas
           shadows
         >
@@ -63,6 +96,70 @@ export default function ForCanvas() {
           </Suspense>
         </Canvas>
       </div>
+      {
+        showMenu ?
+          <div className={styles.menu}  >
+            <div className={styles.buttons}>
+              <div className={styles.button} onClick={() => { onButtonClick('about') }}>
+                ABOUT
+              </div>
+              <div className={styles.button} onClick={() => { onButtonClick('team') }}>
+                TEAM
+              </div>
+              <div className={styles.button} onClick={() => { onButtonClick('roadmap') }}>
+                ROADMAP
+              </div>
+              <div className={styles.button} onClick={() => { onButtonClick('sifter') }}>
+                MEET YOUR SIFTER
+              </div>
+            </div>
+            <div className={styles.closeButton} onClick={() => { onButtonClick('close') }}>
+              <Image
+                src="/Assets/close.png"
+                alt=""
+                width={50}
+                height={50}
+              />
+            </div>
+          </div>
+          :
+          <div className={styles.menuButton} >
+            <div className={styles.hamburger} onClick={() => { onHamburgerClick() }} >
+              <Image
+                src="/Assets/hamburger.png"
+                alt=""
+                width={60}
+                height={60}
+              />
+            </div>
+            <div className={styles.options}>
+              <div className={styles.button} >
+                <Image
+                  src="/Assets/logo-mark.png"
+                  alt=""
+                  width={30}
+                  height={30}
+                />
+              </div>
+              <div className={styles.button}>
+                <Image
+                  src="/Assets/twitter.png"
+                  alt=""
+                  width={30}
+                  height={30}
+                />
+              </div>
+              <div className={styles.button}>
+                <Image
+                  src="/Assets/discord.png"
+                  alt=""
+                  width={30}
+                  height={30}
+                />
+              </div>
+            </div>
+          </div>
+      }
     </>
   );
 }

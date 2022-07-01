@@ -45,6 +45,55 @@ import Image from "next/image";
 
 const Model = (props) => {
 
+  useFrame((state, delta) => {
+    const action = actions["CameraAction"];
+    const offset = scroll.scroll.current;
+    // var offset = 0;
+    // offset += deltaY * 0.001;
+    // console.log('offset state-->', offset);
+    // console.log('useFrame Delta', delta);
+    action.time = damp(
+      action.time,
+      action.getClip().duration * offset,
+      10,
+      delta
+    );
+    state.camera.position.set(
+      cameras[0].position.x,
+      cameras[0].position.y,
+      cameras[0].position.z
+    );
+    state.camera.rotation.set(
+      cameras[0].rotation.x,
+      cameras[0].rotation.y,
+      cameras[0].rotation.z
+    );
+  });
+
+  // useEffect(() => {
+  //   const action = actions["CameraAction"];
+  //   scroll.scroll.current += props.delta * 0.0001;
+  //   const offset = scroll.offset;
+  //   action.time = damp(
+  //     action.time,
+  //     action.getClip().duration * offset,
+  //     10,
+  //     frameDelta
+  //   );
+  //   frameState.camera.position.set(
+  //     cameras[0].position.x,
+  //     cameras[0].position.y,
+  //     cameras[0].position.z
+  //   );
+  //   frameState.camera.rotation.set(
+  //     cameras[0].rotation.x,
+  //     cameras[0].rotation.y,
+  //     cameras[0].rotation.z
+  //   );
+  //   console.log('delta', props.delta);
+  // }, [props.event]);
+
+
   const { scene, nodes, animations, cameras, materials } = useGLTF("fin.gltf");
   const { actions } = useAnimations(animations, cameras[0]);
 
@@ -587,27 +636,30 @@ const Model = (props) => {
 
   // var offset;
 
-  useFrame((state, delta) => {
-    const action = actions["CameraAction"];
-    const offset = scroll.offset;
-    // console.log('offset state-->', offset);
-    action.time = damp(
-      action.time,
-      action.getClip().duration * offset,
-      10,
-      delta
-    );
-    state.camera.position.set(
-      cameras[0].position.x,
-      cameras[0].position.y,
-      cameras[0].position.z
-    );
-    state.camera.rotation.set(
-      cameras[0].rotation.x,
-      cameras[0].rotation.y,
-      cameras[0].rotation.z
-    );
-  });
+  // useFrame((state, delta) => {
+  //   const action = actions["CameraAction"];
+  //   // deltaY
+  //   const offset = scroll.offset;
+  //   // var offset = 0;
+  //   // offset += deltaY * 0.001;
+  //   console.log('offset state-->', offset);
+  //   action.time = damp(
+  //     action.time,
+  //     action.getClip().duration * offset,
+  //     10,
+  //     delta
+  //   );
+  //   state.camera.position.set(
+  //     cameras[0].position.x,
+  //     cameras[0].position.y,
+  //     cameras[0].position.z
+  //   );
+  //   state.camera.rotation.set(
+  //     cameras[0].rotation.x,
+  //     cameras[0].rotation.y,
+  //     cameras[0].rotation.z
+  //   );
+  // });
 
   animate();
   function Nav() {
@@ -699,16 +751,28 @@ const Model = (props) => {
   }
 
   function onMouseWheel(e) {
-    console.log('scroll->', scroll.offset);
+    // console.log('scroll->', scroll.offset);
     var delta = e.deltaY;
-    if (scroll.offset >= 0.5 && scroll.offset <= 0.72) {
-      scroll.scroll.current += delta * 0.0001;
-    }
-    else if (scroll.offset > 0.72) {
-      console.log('here--->');
-      scroll.offset = 0.725;
-      scroll.scroll.current = 0.725;
-    }
+    console.log('scroll-->', scroll);
+    scroll.scroll.current += delta * 0.0001;
+    // scroll.offset += delta * 0.0001;
+    // console.log('scroll->', scroll.offset);
+    // if (scroll.offset >= 0.5 && scroll.offset <= 0.72) {
+    //   scroll.scroll.current += delta * 0.0001;
+    // }
+    // else if (scroll.offset > 0.72) {
+    //   // console.log('here--->');
+    //   scroll.offset = 0.725;
+    //   scroll.scroll.current = 0.725;
+    // }
+  }
+
+  function RoadMap() {
+    return (
+      <Html>
+
+      </Html>
+    );
   }
 
   function Team() {
@@ -718,7 +782,7 @@ const Model = (props) => {
     }
     return (
       <Html transform occlude position={[4, -5, 19]} rotation={[1.6, 1.6, 0]}>
-        <div className={styles.teamContainer} onWheel={onMouseWheel}>
+        <div onWheel={onMouseWheel} className={styles.teamContainer} >
           <Swiper
             grabCursor={true}
             effect={"creative"}
@@ -1016,8 +1080,11 @@ const Model = (props) => {
 
   return (
     <>
-      <group>
+      <group name="team">
         <Team />
+      </group>
+      <group name="roadmap">
+        <RoadMap />
       </group>
       <group>
         <PerspectiveCamera makeDefault name="Camera" fov={22.89} far={1000} />

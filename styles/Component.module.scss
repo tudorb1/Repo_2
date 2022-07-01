@@ -11,6 +11,90 @@
   src: url(../public/Assets/nav/Poppins-Medium.ttf) format('truetype');
 }
 
+.menu {
+  position: fixed;
+  padding-top: 80px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  top: 0;
+  font-family: "odachi";
+  font-size: 60px;
+  width: 24%;
+  height: 70%;
+  left: 38%;
+  top: 15%;
+  background: linear-gradient(135deg, transparent 10%, rgb(0, 255, 0) 10%, rgb(0, 255, 0) 90%, transparent 90%);
+
+  .buttons {
+    text-align: center;
+
+    .button {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      opacity: 0.7;
+    }
+
+    .button:hover {
+      opacity: 1;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+  }
+
+  .closeButton {
+    left: 10px;
+    opacity: 0.7;
+  }
+
+  .closeButton:hover {
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.5s;
+  }
+}
+
+.menuButton {
+  position: fixed;
+  bottom: 20px;
+  font-size: 30px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 100px;
+
+  .hamburger {
+    opacity: 0.7;
+  }
+
+  .hamburger:hover {
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.5s;
+  }
+
+  .options {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    align-items: center;
+
+    .button {
+      opacity: 0.7;
+    }
+
+    .button:hover {
+      opacity: 1;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+  }
+}
+
+
+
 .scene {
   width: 100vw;
   height: 100vh;
