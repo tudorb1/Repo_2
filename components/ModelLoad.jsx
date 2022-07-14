@@ -9,12 +9,12 @@ import {
   Cloud,
 } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import {
-  EffectComposer,
-  Bloom,
-  Noise,
-  SelectiveBloom,
-} from "@react-three/postprocessing";
+// import {
+//   EffectComposer,
+//   Bloom,
+//   Noise,
+//   SelectiveBloom,
+// } from "@react-three/postprocessing";
 import { useEffect, useLayoutEffect, useState } from "react";
 import THREE, {
   ShaderMaterial,

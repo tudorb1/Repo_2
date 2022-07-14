@@ -10,7 +10,7 @@ import {
 } from "@react-three/drei";
 import { Canvas, Camera, useFrame, extend, useThree } from "@react-three/fiber";
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
-import { GodRays } from "@react-three/postprocessing";
+// import { GodRays } from "@react-three/postprocessing";
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 import { Suspense, useEffect, useRef, useMemo, useState } from "react";
